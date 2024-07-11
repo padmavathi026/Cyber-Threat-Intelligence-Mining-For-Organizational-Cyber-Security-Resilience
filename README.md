@@ -15,7 +15,9 @@ The pre-existing applications can only detect if the attack has happened or not,
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>Python</b> 
+- <b>Python</b>
+- <b>HTML</b>
+- <b>CSS</b>
 - <b>Numpy</b>
 - <b>Pandas</b>
 - <b>Scikit-Learn</b>
