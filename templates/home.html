@@ -1,0 +1,121 @@
+{% load static %}
+<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Threat Prediction!!</title>
+    <style>
+        body {
+            background-image: url("{%static 'images/cyber_threat.png' %}");
+            background-size: cover;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1d2b4c;
+            font-size: 25px;
+            letter-spacing: 1px;
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        li a:active {
+            background-color: rgb(20, 48, 204);
+        }
+
+        h2 {
+            color: red;
+            text-shadow: 4px 2px 5px red;
+            font-size: 50px;
+        }
+
+        p {
+            color: white;
+            font-size: 30px;
+        }
+
+        p2 {
+            color: white;
+            font-size: 100px;
+        }
+
+        tit {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a class="active" href="signup">Create an Account</a></li>
+        <li><a class="active" href="signin">SignIn</a></li>
+        <li style="float:left"><a href="">
+                <tit><b><i>Cyber Threat Prediction</i></b></tit>
+            </a></li>
+    </ul>
+    <h2 style="color: #e82626;">Time to Predict the Cyber Threat</h2>
+    <p><b>Smarter Easier to predict Cyber Threat Intelligence</b><br>With the help of machine learning</p>
+    <div class="row" style="background-color: antiquewhite;">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    <b style="color:#e82626;font-size: 24px;font-weight: bold ;"> Counter plot of our Targeted Data.</b>
+                </div>
+                <div class="card-body">
+                    <canvas id="chart" width="100%" height="30"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
+
+<script> 
+
+    let ctx = document.getElementById("chart").getContext("2d");
+    let chart = new Chart(ctx, {
+      type: "bar",
+      data: {
+         labels: ["0-Ransomeware", "1-Dos Attack", "2- Phishing","3-SQL Injection","4-Spyware","5-MITM Attack"],
+         datasets: [
+            {
+              label: "Data Count of the Cyber Threat Intelligence",
+              backgroundColor: "black",
+              borderColor: "#e82626",
+              data: [79035,82285,79020,79002,79052,79032]
+            }
+         ]
+      },
+      options: {
+         title: {
+            text: "Types of Cyber Threat Intelligence",
+            backgroundColor:"#e82626",
+            display: true
+         }
+      }
+    }) 
+    
+    </script>;
+</html>

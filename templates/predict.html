@@ -1,0 +1,140 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction</title>
+    <style>
+        body{
+        background-image: url("{%static 'images/cyber_threat.png' %}");
+        background-size: cover;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            font-size: 25px;
+            letter-spacing: 1px;
+         }
+         li{
+            float: right;
+         }
+         li a{
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+         }
+         li a:hover{
+            background-color: #111;
+         }
+        li a:active{
+            background-color: rgb(20, 48, 204);
+         }
+         #frm
+         {
+            font-size: 25px;
+            font-weight: bold;
+            color:#2460A7FF;
+            background-color: #B3C7D6FF;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+         }
+         input[type=text],input[type=range],input[type=number]
+         {
+            background-color: #B3C7D6FF;
+            color:#000000;
+            outline: none;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            width: 100%;
+            border: none;
+            margin: 10px 0;
+            border-bottom: 2px solid #85B3D1FF;
+            font-weight:bold;
+            font-size: 20px;
+            font-style: bold;
+            font-family: Helvetica;
+         }
+         input[type=submit]
+         {
+            margin-top: 1%;
+            width: 15%;
+            height: 5%;
+            border: none;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #000000;
+            background-color: rgb(48, 150, 190);
+            font-weight: bold;
+         }
+         input[type=submit]:hover
+         {
+            background-color: rgb(131, 39, 168);
+         }
+         mess{
+         text-align: center;
+         font-weight: bold;
+         color: red;
+         font-size:35px;
+         text-shadow: 4px 2px 5px red;
+         }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a class="active" href="home">LogOut</a></li>
+</ul>
+<mess>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</mess>
+<div style="float: center;align-items: center;padding-left: 550px;padding-top: 60px;">
+   <div id="frm" style="width: 500px;">
+    <form action="predict" method="post">
+        {% csrf_token %}
+        <h1 style="color: rgb(233, 237, 241);font-style:inherit;"><center>Prediction</center></h1>
+        <label for ="frame_number"> Frame Number:</label>
+        <input type="number" id="frame_number" name="frame_number" required><br>
+        <label for ="frame_time"> Frame Time:</label>
+        <input type="number" id="frame_time" name="frame_time" required><br>
+        <label for ="frame_len"> Frame Length:</label>
+        <input type="number" id="frame_len" name="frame_len" required><br>
+        <label for ="eth_src"> Ethernet Source:</label>
+        <input type="number" id="eth_src" name="eth_src" required><br>
+        <label for ="eth_dst"> Ethernet Destination:</label>
+        <input type="number" id="eth_dst" name="eth_dst" required><br>
+        <label for ="ip_src"> IP Source:</label>
+        <input type="number" id="ip_src" name="ip_src" required><br>
+        <label for ="ip_dst"> IP Destination:</label>
+        <input type="number" id="ip_dst" name="ip_dst" required><br>
+        <label for ="ip_proto"> IP Protocol:</label>
+        <input type="number" id="ip_proto" name="ip_proto" required><br>
+        <label for ="ip_len"> IP Length:</label>
+        <input type="number" id="ip_len" name="ip_len" required><br>
+        <label for ="tcp_len"> TCP Length:</label>
+        <input type="number" id="tcp_len" name="tcp_len" required><br>
+        <label for ="tcp_srcport"> TCP Source Port:</label>
+        <input type="number" id="tcp_srcport" name="tcp_srcport" required><br>
+        <label for ="tcp_dstport"> TCP Destination Port:</label>
+        <input type="number" id="tcp_dstport" name="tcp_dstport" required><br>
+        <input type="submit" id="btn" value="Predict">
+    </form>
+</div>
+<mess>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</mess>
+
+</body>
+</html>

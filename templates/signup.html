@@ -1,0 +1,129 @@
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Acoount</title>
+    <style>
+        body{
+        background-image: url("{%static 'images/cyber_threat.png' %}");
+        background-size: cover;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            font-size: 25px;
+            letter-spacing: 1px;
+         }
+         li{
+            float: right;
+         }
+         li a{
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+         }
+         li a:hover{
+            background-color: #111;
+         }
+        li a:active{
+            background-color: rgb(20, 48, 204);
+         }
+         #frm
+         {
+            font-size: 25px;
+            font-weight: bold;
+            color:#2460A7FF;
+            background-color: #B3C7D6FF;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+         }
+         input[type=text],input[type=email],input[type=number],input[type=password]
+         {
+            background-color: #B3C7D6FF;
+            color:#000000;
+            outline: none;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            width: 100%;
+            border: none;
+            margin: 10px 0;
+            border-bottom: 2px solid #85B3D1FF;
+            font-weight:bold;
+            font-size: 20px;
+            font-style: bold;
+            font-family: Helvetica;
+         }
+         input[type=submit]
+         {
+            margin-top: 1%;
+            width: 25%;
+            height: 5%;
+            border: none;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #000000;
+            background-color: rgb(48, 150, 190);
+            font-weight: bold;
+         }
+         input[type=submit]:hover
+         {
+            background-color: rgb(131, 39, 168);
+         }
+         mess{
+         text-align: center;
+         font-weight: bold;
+         color: red;
+         font-size:35px;
+         text-shadow: 4px 2px 5px red;
+         }
+    </style>
+</head>
+<body>
+<ul>
+    <li style="background-color: rgb(20, 48, 204);"><a class="active" href="signup">Create an Account</a></li>
+    <li><a class="active" href="signin">SignIn</a></li>
+    <li style="float:left"><a href="home"><tit><b><i>Cyber Threat Prediction</i></b></tit></a></li>
+</ul>
+<mess>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</mess>
+<div style="float: center;align-items: center;padding-left: 550px;padding-top: 60px;">
+<div id="frm" style="width: 500px;">
+    <form action="signup" method="post">
+        {% csrf_token %}
+        <label for ="first_name"> First Name :</label>
+        <input type="text" id="first_name" name="first_name" required><br>
+        <label for ="last_name"> Last Name :</label>
+        <input type="text" id="last_name" name="last_name" required><br>
+        <label for ="username"> Username :</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for ="email"> Email :</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for ="password1"> Password :</label>
+        <input type="password" id="password1" name="password1" required><br>
+        <label for ="password2"> Re-Enter Password :</label>
+        <input type="password" id="password2" name="password2" required><br>
+        <input type="submit" id="btn" value="Sign Up">
+    </form>
+</div>
+</div>
+<mess>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</mess>
+</body>
+</html>
